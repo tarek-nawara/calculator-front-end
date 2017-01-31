@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script src="angularController.js"></script>
+</head>
+
+<body>
+	<div ng-controller="appController">
+		<div id="background">
+			<textarea id="result" rows="4" cols="50">{{expression}}</textarea>
+
+			<div id="main">
+				<div id="first-rows">
+					<button ng-click="deleteHandler()" class="del-bg" id="delete">Del</button>
+					<button value="%" ng-click="buttonHandler('%', $index)" class="btn-style operator opera-bg fall-back">%</button>
+					<button value="+" ng-click="buttonHandler('+', $index)" class="btn-style opera-bg value align operator">+</button>
+				</div>
+
+				<div class="rows">
+					<button value="7" ng-click="buttonHandler('7', $index)" class="btn-style num-bg num first-child">7</button>
+					<button value="8" ng-click="buttonHandler('8', $index)" class="btn-style num-bg num">8</button>
+					<button value="9" ng-click="buttonHandler('9', $index)" class="btn-style num-bg num">9</button>
+					<button value="-" ng-click="buttonHandler('-', $index)" class="btn-style opera-bg operator">-</button>
+				</div>
+
+				<div class="rows">
+					<button value="4" ng-click="buttonHandler('4', $index)" class="btn-style num-bg num first-child">4</button>
+					<button value="5" ng-click="buttonHandler('5', $index)" class="btn-style num-bg num">5</button>
+					<button value="6" ng-click="buttonHandler('6', $index)" class="btn-style num-bg num">6</button>
+					<button value="*" ng-click="buttonHandler('*', $index)" class="btn-style opera-bg operator">*</button>
+				</div>
+
+				<div class="rows">
+					<button value="1" ng-click="buttonHandler('1', $index)" class="btn-style num-bg num first-child">1</button>
+					<button value="2" ng-click="buttonHandler('2', $index)" class="btn-style num-bg num">2</button>
+					<button value="3" ng-click="buttonHandler('3', $index)" class="btn-style num-bg num">3</button>
+					<button value="/" ng-click="buttonHandler('/', $index)" class="btn-style opera-bg operator">/</button>
+				</div>
+
+			</div>
+
+
+			<div class="rows">
+				<button value="0" ng-click="buttonHandler('0', $index)" class="num-bg zero" id="deleteAll">0</button>
+				<button value="." ng-click="buttonHandler('.', $index)" class="btn-style num-bg period fall-back">.</button>
+				<button value="=" ng-click="equalHandler()" id="eqn-bg" class="eqn align">=</button>
+			</div>
+
+		</div>
+
+		<div>
+			<button ng-click="historyHandler()" class="eqn align, pagination-centered " id="his-bg">history</button>
+		</div>
+	</div>
+</body>
+
+</html>
